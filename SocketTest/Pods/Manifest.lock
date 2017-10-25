@@ -1,0 +1,15 @@
+PODS:
+  - CocoaAsyncSocket (7.6.1)
+  - DLKit/Classes/Base/DLData (0.3.5)
+
+DEPENDENCIES:
+  - CocoaAsyncSocket (~> 7.6.1)
+  - DLKit/Classes/Base/DLData (~> 0.3.5)
+
+SPEC CHECKSUMS:
+  CocoaAsyncSocket: 7eadd3f59e1a6c84e2aefc93e9ff7b55156fe174
+  DLKit: 3736866ec1b6184c5b773f89e94c298532221314
+
+PODFILE CHECKSUM: c5c3e11325259fada468e444175caf9085ba7d33
+
+COCOAPODS: 1.1.1
