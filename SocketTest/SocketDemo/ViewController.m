@@ -71,8 +71,9 @@
     
     NSData *pdata = [PackageData packageDataWithStringObjects:@"100",@"300",@"500",@"900",nil];
     NSLog(@"pdata = %@",pdata);
-    [AnalyzeData analyzeData:pdata completion:^(AnalyzeCode code, NSArray *arr) {
-
+    
+    [AnalyzeData analyzeData:pdata completion:^(AnalyzeCode code, short protocolVer, short orderID, NSArray *arr) {
+        
     }];
 
     return;
