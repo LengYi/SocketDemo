@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SocketDemo/ViewController.m"
-            timestampString = "530604316.241569"
+            timestampString = "530620505.176252"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
             landmarkName = "-postData"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SocketDemo/ViewController.m"
-            timestampString = "530604316.241635"
+            timestampString = "530620505.17666"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
             landmarkName = "-postData"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SocketDemo/ViewController.m"
-            timestampString = "530604316.241679"
+            timestampString = "530620505.176874"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
             landmarkName = "-postData"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SocketDemo/ViewController.m"
-            timestampString = "530604316.24172"
+            timestampString = "530620505.177075"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
             landmarkName = "-postData"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SocketDemo/ViewController.m"
-            timestampString = "530604316.241758"
+            timestampString = "530620505.177275"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
             landmarkName = "-analyzeData:"
             landmarkType = "7">
          </BreakpointContent>
@@ -122,11 +122,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SocketDemo/ViewController.m"
-            timestampString = "530604332.920382"
+            timestampString = "530620505.177536"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-sendClientDataToServer"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SocketDemo/ViewController.m"
+            timestampString = "530620520.240922"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "-sendClientDataToServer"
             landmarkType = "7">
          </BreakpointContent>

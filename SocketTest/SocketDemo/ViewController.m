@@ -12,6 +12,7 @@
 #import <DLProtocolPackage.h>
 #import "PackageData.h"
 #import "AnalyzeData.h"
+#import "Person.pbobjc.h"
 
 @interface ViewController ()
 @property (nonatomic,strong) UITextView *textView;
@@ -68,6 +69,28 @@
 
 // 发送客户端数据
 - (void)sendClientDataToServer{
+    AppContextMessage *builder = [AppContextMessage message];
+    [builder setNetConnetionType:@"wifi"];
+    [builder setScreenResolution:@""];
+    [builder setMacAddress:@""];
+    [builder setCarrierName:@"中国联通"];
+    [builder setDeviceModel:@""];
+    [builder setWifiName:@"my_wifi(8c:21:a:44:f0:c)"];
+    [builder setDeviceType:@"iPhone"];
+    [builder setSystemVersion:@""];
+    [builder setDeviceUuid:@""];
+    [builder setDeviceName:@""];
+    [builder setGps:@""];
+    [builder setAppVersion:@"1.0.1_20"];
+    NSData *data11 = builder.data;
+    
+    
+    AppContextMessage *d = [[AppContextMessage alloc] initWithData:data11 error:nil];
+    NSLog(@"%@",[d description]);
+    NSLog(@"data: %ld", data11.length);
+    NSLog(@"length: %ld", d.description.length);
+    
+    return;
 //    NSData *data1 = [@"Hello 服务端" dataUsingEncoding:NSUTF8StringEncoding];
 //    [[TCPClient shareInstance] sendData:data1];
 //    return;
