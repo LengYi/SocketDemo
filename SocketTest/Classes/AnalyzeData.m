@@ -10,7 +10,7 @@
 
 @implementation AnalyzeData
 
-+ (void)analyzeData:(NSData *)data completion:(void (^)(AnalyzeCode code,NSArray *arr))handle{
++ (void)analyzeData:(NSData *)data completion:(void (^)(AnalyzeCode code,short int protocolVer,short int orderID ,NSArray *arr))handle{
     if (data) {
         int totalLength = (int)[data length];
         int index = 0;
