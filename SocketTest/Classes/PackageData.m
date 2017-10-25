@@ -12,7 +12,7 @@ const short int ProtocolVer = 1000; // 协议版本
 
 @implementation PackageData
 
-+ (NSData *)packageDataWithStringObjects:(id)firstObject,...{
++ (NSData *)packageDataWithOrder:(short int)order stringObject:(id)firstObject,...{
     id eachObject = nil;
     va_list argumentList;
     if (firstObject && [firstObject isKindOfClass:[NSString class]]) {
@@ -30,7 +30,7 @@ const short int ProtocolVer = 1000; // 协议版本
         
         va_end(argumentList);
         NSLog(@"222== %@ -> %@",firstObject,array);
-        return [PackageData packageDataWithDataArray:array];
+        return [PackageData packageDataWithOrder:order dataArray:array];
     }else{
 #ifdef DEBUG
         NSLog(@"参数仅支持NSString类型");
@@ -40,13 +40,13 @@ const short int ProtocolVer = 1000; // 协议版本
     return nil;
 }
 
-+ (NSData *)packageDataWithDataArray:(NSArray *)array{
++ (NSData *)packageDataWithOrder:(short int)order dataArray:(NSArray *)array{
     // 协议版本
     NSData *protocolVerData = [[NSData alloc] initWithBytes:&ProtocolVer length:sizeof(ProtocolVer)];
     
     // 协议ID
-    Byte orderByte[2] = {0x64};  // 100
-    NSData *orderData = [[NSData alloc] initWithBytes:orderByte length:sizeof(orderByte)];
+    //Byte orderByte[2] = {0x64};  // 100
+    NSData *orderData = [[NSData alloc] initWithBytes:&order length:sizeof(order)];
     
     // 实际发送包
     NSMutableData *postData = [[NSMutableData alloc] init];

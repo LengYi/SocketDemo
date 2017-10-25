@@ -57,7 +57,7 @@
 }
 
 - (void)initClient{
-    [[TCPClient shareInstance] socketConnectToHost:@"192.168.1.106" onPort:1234];
+    [[TCPClient shareInstance] socketConnectToHost:@"192.168.2.56" onPort:1234];
 }
 
 // 发送服务端数据
@@ -68,13 +68,25 @@
 
 // 发送客户端数据
 - (void)sendClientDataToServer{
+//    NSData *data1 = [@"Hello 服务端" dataUsingEncoding:NSUTF8StringEncoding];
+//    [[TCPClient shareInstance] sendData:data1];
+//    return;
     
-    NSData *pdata = [PackageData packageDataWithStringObjects:@"100",@"300",@"500",@"900",nil];
+    NSData *pdata = [PackageData packageDataWithOrder:1000 stringObject:@"Hello",@"爱我中国",@"500",@"900",nil];
     NSLog(@"pdata = %@",pdata);
+    [[TCPClient shareInstance] sendData:pdata];
+//    [AnalyzeData analyzeData:pdata completion:^(AnalyzeCode code, short protocolVer, short orderID, NSArray *arr) {
+//
+//    }];
     
-    [AnalyzeData analyzeData:pdata completion:^(AnalyzeCode code, short protocolVer, short orderID, NSArray *arr) {
-        
-    }];
+    
+    pdata = [PackageData packageDataWithOrder:2000 stringObject:@"100",@"300",@"500",@"900",nil];
+    NSLog(@"pdata = %@",pdata);
+    [[TCPClient shareInstance] sendData:pdata];
+    
+//    [AnalyzeData analyzeData:pdata completion:^(AnalyzeCode code, short protocolVer, short orderID, NSArray *arr) {
+//
+//    }];
 
     return;
     [self postData];

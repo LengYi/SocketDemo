@@ -21,6 +21,6 @@
 
 @interface PackageData : NSObject
 
-+ (NSData *)packageDataWithStringObjects:(id)firstObject,...;
++ (NSData *)packageDataWithOrder:(short int)order stringObject:(id)firstObject,...;
 
 @end

@@ -4,4 +4,5 @@ source 'https://github.com/CocoaPods/Specs.git'
 target 'SocketDemo' do
 pod 'CocoaAsyncSocket', '~> 7.6.1'
 pod 'DLKit/Classes/Base/DLData','~> 0.3.5'
+pod 'Protobuf', '~> 3.4.0'
 end

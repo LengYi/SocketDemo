@@ -16,6 +16,7 @@
 		2A76CAA61F9B7E6C00CBF0A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A76CAA51F9B7E6C00CBF0A8 /* Assets.xcassets */; };
 		2A76CAA91F9B7E6C00CBF0A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A76CAA71F9B7E6C00CBF0A8 /* LaunchScreen.storyboard */; };
 		2A76CAAC1F9B7E6C00CBF0A8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A76CAAB1F9B7E6C00CBF0A8 /* main.m */; };
+		5815EC1D1FA083B100284668 /* Person.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 5815EC1B1FA083B100284668 /* Person.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		58D2EB831F9F2C2000C4030A /* PackageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D2EB821F9F2C2000C4030A /* PackageData.m */; };
 		58D2EB861F9F2C3E00C4030A /* AnalyzeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D2EB851F9F2C3E00C4030A /* AnalyzeData.m */; };
 /* End PBXBuildFile section */
@@ -35,6 +36,9 @@
 		2A76CAA81F9B7E6C00CBF0A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2A76CAAA1F9B7E6C00CBF0A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A76CAAB1F9B7E6C00CBF0A8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5815EC1A1FA077DF00284668 /* Statistics.AppContexMessage.proto */ = {isa = PBXFileReference; lastKnownFileType = text; path = Statistics.AppContexMessage.proto; sourceTree = "<group>"; };
+		5815EC1B1FA083B100284668 /* Person.pbobjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.pbobjc.m; sourceTree = "<group>"; };
+		5815EC1C1FA083B100284668 /* Person.pbobjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.pbobjc.h; sourceTree = "<group>"; };
 		58D2EB811F9F2C2000C4030A /* PackageData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PackageData.h; sourceTree = "<group>"; };
 		58D2EB821F9F2C2000C4030A /* PackageData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PackageData.m; sourceTree = "<group>"; };
 		58D2EB841F9F2C3E00C4030A /* AnalyzeData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnalyzeData.h; sourceTree = "<group>"; };
@@ -67,6 +71,8 @@
 		2A161D951F9B8BCC0060CB0F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5815EC1C1FA083B100284668 /* Person.pbobjc.h */,
+				5815EC1B1FA083B100284668 /* Person.pbobjc.m */,
 				2A161D961F9B8BEC0060CB0F /* TCPClient.h */,
 				2A161D971F9B8BEC0060CB0F /* TCPClient.m */,
 				2A161D991F9B8C040060CB0F /* TCPServer.h */,
@@ -75,6 +81,7 @@
 				58D2EB821F9F2C2000C4030A /* PackageData.m */,
 				58D2EB841F9F2C3E00C4030A /* AnalyzeData.h */,
 				58D2EB851F9F2C3E00C4030A /* AnalyzeData.m */,
+				5815EC1A1FA077DF00284668 /* Statistics.AppContexMessage.proto */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -252,6 +259,7 @@
 				2A76CAAC1F9B7E6C00CBF0A8 /* main.m in Sources */,
 				2A161D9B1F9B8C040060CB0F /* TCPServer.m in Sources */,
 				2A76CA9E1F9B7E6C00CBF0A8 /* AppDelegate.m in Sources */,
+				5815EC1D1FA083B100284668 /* Person.pbobjc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

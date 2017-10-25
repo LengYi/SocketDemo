@@ -9,9 +9,14 @@
 #import "TCPServer.h"
 #import <GCDAsyncSocket.h>
 
+#define  MAX_DATALENGTH 2000000
+#define HDEART_BEAT 60
+
 @interface TCPServer ()<GCDAsyncSocketDelegate>
 @property (nonatomic,strong) GCDAsyncSocket *serverSocket;
 @property (nonatomic,strong) NSMutableArray *clientSockets;  // 保存客户端连接过来的所有socket
+@property (nonatomic,strong) NSMutableData *readBuff;
+@property (nonatomic,assign) BOOL continueWaitData; // 是否继续等待数据
 @end
 
 @implementation TCPServer
@@ -31,6 +36,7 @@
     if (self = [super init]) {
         _serverSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
         _clientSockets = [[NSMutableArray alloc] init];
+        _readBuff = [[NSMutableData alloc] init];
     }
     return self;
 }
@@ -52,6 +58,22 @@
     }];
 }
 
+
+- (void) handleMsgData:(NSData *)msgData isContinueData:(BOOL)isContinueData{
+    int msgContentLength = 0;
+    int headerLength = 0;
+    
+    if (isContinueData) {
+        
+    }else{
+        
+    }
+}
+
+- (void) handleReceiveData:(NSData *)handleData{
+    
+}
+
 #pragma mark -
 - (void)socket:(GCDAsyncSocket *)sock didAcceptNewSocket:(GCDAsyncSocket *)newSocket{
     NSLog(@"接收到来自 %@:%@ 的连接",newSocket.connectedHost,[NSString stringWithFormat:@"%d",newSocket.connectedPort]);
@@ -67,8 +89,16 @@
     NSString *recvStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     NSLog(@"接收到客户端数据 %@",recvStr);
     
+    if (_continueWaitData) {
+        //处理接收的data数据，不断累加data
+        [self handleMsgData:data isContinueData:YES];
+    }else{
+        // 解析数据
+    }
     // 执行以下操作才能持续获取到客户端发送来的数据
     [sock readDataWithTimeout:- 1 tag:0];
+    
+    //[sock readDataWithTimeout:-1 buffer:_readBuff bufferOffset:_readBuff.length tag:0];
 }
 
 - (void)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(long)tag{
