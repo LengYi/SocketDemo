@@ -58,7 +58,7 @@
 }
 
 - (void)initClient{
-    [[TCPClient shareInstance] socketConnectToHost:@"192.168.2.56" onPort:1234];
+    [[TCPClient shareInstance] socketConnectToHost:@"192.168.2.20" onPort:1234];
 }
 
 // 发送服务端数据
@@ -69,28 +69,6 @@
 
 // 发送客户端数据
 - (void)sendClientDataToServer{
-    AppContextMessage *builder = [AppContextMessage message];
-    [builder setNetConnetionType:@"wifi"];
-    [builder setScreenResolution:@""];
-    [builder setMacAddress:@""];
-    [builder setCarrierName:@"中国联通"];
-    [builder setDeviceModel:@""];
-    [builder setWifiName:@"my_wifi(8c:21:a:44:f0:c)"];
-    [builder setDeviceType:@"iPhone"];
-    [builder setSystemVersion:@""];
-    [builder setDeviceUuid:@""];
-    [builder setDeviceName:@""];
-    [builder setGps:@""];
-    [builder setAppVersion:@"1.0.1_20"];
-    NSData *data11 = builder.data;
-    
-    
-    AppContextMessage *d = [[AppContextMessage alloc] initWithData:data11 error:nil];
-    NSLog(@"%@",[d description]);
-    NSLog(@"data: %ld", data11.length);
-    NSLog(@"length: %ld", d.description.length);
-    
-    return;
 //    NSData *data1 = [@"Hello 服务端" dataUsingEncoding:NSUTF8StringEncoding];
 //    [[TCPClient shareInstance] sendData:data1];
 //    return;
@@ -102,7 +80,7 @@
 //
 //    }];
     
-    
+    return;
     pdata = [PackageData packageDataWithOrder:2000 stringObject:@"100",@"300",@"500",@"900",nil];
     NSLog(@"pdata = %@",pdata);
     [[TCPClient shareInstance] sendData:pdata];
@@ -179,8 +157,76 @@
     }
 }
 
+- (void)sendPbData{
+    AppContextMessage *builder = [AppContextMessage message];
+    [builder setNetConnetionType:@"wifi"];
+    [builder setScreenResolution:@""];
+    [builder setMacAddress:@""];
+    [builder setCarrierName:@"中国联通"];
+    [builder setDeviceModel:@""];
+    [builder setWifiName:@"my_wifi(8c:21:a:44:f0:c)"];
+    [builder setDeviceType:@"iPhone"];
+    [builder setSystemVersion:@""];
+    [builder setDeviceUuid:@""];
+    [builder setDeviceName:@""];
+    [builder setGps:@""];
+    [builder setAppVersion:@"1.0.1_20"];
+    
+    NSMutableArray *arr = [[NSMutableArray alloc] init];
+    for (int i = 0; i < 3; i++) {
+        User *us = [User message];
+        NSString *name = [NSString stringWithFormat:@"name %d",i];
+        NSString *age = [NSString stringWithFormat:@"age %d",i];
+        us.name = name;
+        us.age = age;
+        
+        [arr addObject:us];
+    }
+    
+    builder.usersArray = arr;
+    
+    NSMutableDictionary *dc = [[NSMutableDictionary alloc] initWithDictionary:@{@"key1":@"value1",@"key2":@"爱我中华"}];
+    builder.dic = dc;
+    
+    NSData *data11 = builder.data;
+    
+    AppContextMessage *d = [[AppContextMessage alloc] initWithData:data11 error:nil];
+    NSLog(@"appVersion = %@",d.appVersion);
+    NSLog(@"dic = %@",d.dic);
+    
+    NSLog(@"%@",[d description]);
+    NSLog(@"data: %ld", data11.length);
+    NSLog(@"length: %ld", d.description.length);
+    
+    return;
+}
 
+- (void)sendImageData{
+    
+    NSData *imageNameData = [self dataFromString:@"世界名画-->梵高的向日葵"];
+    NSData *imageWidthData = [self dataFromString:@"1000"];
+    NSData *imageHeightData = [self dataFromString:@"800"];
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Image" ofType:@"zip"];
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    
+    NSArray *postDataArray = @[imageNameData,imageWidthData,imageHeightData,data];
+    
+    NSData *postData = [PackageData packageDataWithOrder:100 dataArray:postDataArray];
+    
+    [[TCPClient shareInstance] sendData:postData];
+}
 
-
-
+- (NSData *)dataFromString:(NSString *)string{
+    if (string == nil || ![string isKindOfClass:[NSString class]]) {
+#ifdef DEBUG
+        NSLog(@"参数 %@ 是 %@,不是NSStirng类型",string,[string class]);
+#endif
+        return nil;
+    }
+    
+    NSData *resultData = [NSData dataWithBytes:[string UTF8String]
+                                        length:strlen([string UTF8String])];
+    return resultData;
+}
 @end

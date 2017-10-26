@@ -22,5 +22,5 @@
 @interface PackageData : NSObject
 
 + (NSData *)packageDataWithOrder:(short int)order stringObject:(id)firstObject,...;
-
++ (NSData *)packageDataWithOrder:(short int)order dataArray:(NSArray *)array;
 @end
